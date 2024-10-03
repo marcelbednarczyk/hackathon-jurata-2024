@@ -1,0 +1,152 @@
+syntax = "proto3";
+
+message Config {
+    string roomID = 1;
+    int32 numberOfGames = 2;
+}
+
+message JoinRoomRequest {
+    string roomID = 1;
+    string playerName = 2;
+}
+
+message GetRoomRequest {
+    string roomID = 1;
+    string playerID = 2;
+}
+
+message RoomState {
+    string roomID = 1;
+    string playerID = 2;
+    int32 currentGame = 3;
+    int32 totalGames = 4;
+    bool startNextGame = 5;
+    string winner = 6;
+    repeated PlayerScore scores = 7;
+}
+
+message PlayerScore {
+    string playerID = 1;
+    string playerName = 2;
+    int32 score = 3;
+}
+
+message GameState {
+    string playerToMove = 1;
+    MoveType moveToMake = 2;
+    Market market = 3;
+    Hand yourHand = 4;
+    repeated Hand opponentsHands = 5;
+    bool isGameOver = 6;
+    string winner = 7;
+    map<string, int32> finalScores = 8;
+}
+
+message MoveRequest {
+    string roomID = 1;
+    string playerID = 2;
+    repeated string cards = 3;
+    MoveType moveType = 4;
+}
+
+
+message Hand {
+    repeated Card pointCards = 1;
+    repeated VegtableHeld vegetables = 2;
+}
+
+message VegtableHeld {
+    VegetableType vegetableType = 1;
+    int32 count = 2;
+}
+
+message Market {
+    repeated Card pointCards = 1;
+    repeated Card vegetableCards = 2;
+}
+
+message Card {
+    string cardID = 1;
+    VegetableType vegetable = 2;
+    PointType pointType = 3;
+    PointsPerVegetable pointsPerVegetable = 4;
+    Sum sum = 5;
+    EvenOdd evenOdd = 6;
+    FewestMost fewestMost = 7;
+    Other other = 8;
+}
+
+message PointsPerVegetable {
+   repeated VegetablePoints points = 1;
+}
+
+message Sum {
+    int32 points = 1;
+    repeated VegetableType vegetables = 2;
+}
+
+message EvenOdd {
+    int32 even = 1;
+    int32 odd = 2;
+    VegetableType vegetable = 3;
+}
+
+message FewestMost {
+    int32 points = 1;
+    VegetableType vegetable = 2;
+}
+
+message Other {
+    int32 points = 1;
+}
+
+message VegetablePoints {
+    int32 points = 1;
+    VegetableType vegetable = 2;
+}
+
+enum MoveType {
+    TAKE_CARDS = 0;
+    FLIP_CARD = 1;
+}
+
+enum VegetableType {
+    BAD_VEGGIE = 0;
+    TOMATO = 1;
+    CARROT = 2;
+    LETTUCE = 3;
+    CABBAGE = 4;
+    PEPPER = 5;
+    ONION = 6;
+}
+
+enum PointType {
+    BAD_POINT_TYPE = 0;
+    // PointsPerVegetable
+    POINTS_PER_VEGETABLE_ONE = 1;
+    POINTS_PER_VEGETABLE_TWO = 2;
+    POINTS_PER_VEGETABLE_THREE = 3;
+    // Sum
+    SUM_TWO = 4;
+    SUM_THREE = 5;
+    // EvenOdd
+    EVEN_ODD = 6;
+    // FewestMost
+    FEWEST = 7;
+    MOST = 8;
+    // Other
+    MOST_TOTAL = 9;
+    FEWEST_TOTAL = 10;
+    COMPLETE_SET = 11;
+    AT_LEAST_TWO = 12;
+    AT_LEAST_THREE = 13;
+    MISSING_VEGETABLE = 14;
+}
+
+service Game {
+    rpc NewRoom(Config) returns (Config) {}
+    rpc JoinRoom(JoinRoomRequest) returns (RoomState) {}
+    rpc GetRoomState(GetRoomRequest) returns (RoomState) {}
+    rpc GetCurrentGameState(GetRoomRequest) returns (GameState) {}
+    rpc MakeMove(MoveRequest) returns (GameState) {}
+}

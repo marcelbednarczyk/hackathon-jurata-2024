@@ -1,0 +1,3 @@
+[submodule "proto-definitions"]
+	path = proto-definitions
+	url = https://gitlab.com/hackathon-rainbow-2024/proto-definitions.git
