@@ -92,6 +92,8 @@ func main() {
 		switch *botType {
 		case "greedy":
 			b = bot.NewGreedyBot()
+		case "solucjaTymczasowa":
+			b = bot.NewSolucjaTymczasowaBot()
 		default:
 			b = bot.NewRandomBot()
 		}
