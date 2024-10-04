@@ -3,12 +3,14 @@ package main
 import (
 	"context"
 	"flag"
+	"log"
 	"log/slog"
 	"os"
 	"strings"
 	"time"
 
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/bot"
+	"github.com/marcelbednarczyk/hackathon-jurata-2024/cards.go"
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/counter"
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/logic"
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/proto"
@@ -64,6 +66,11 @@ func main() {
 
 	client := proto.NewGameClient(conn)
 	conn.GetState()
+
+	cards, err := cards.LoadCards("cards.json")
+	if err != nil {
+		log.Fatalf("Error loading cards: %v", err)
+	}
 
 	if *new {
 		ctx, cancel := context.WithTimeout(context.Background(), TIMEOUT_NEW_ROOM)

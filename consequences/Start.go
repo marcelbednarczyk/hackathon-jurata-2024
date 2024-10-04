@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log/slog"
 
+	"github.com/marcelbednarczyk/hackathon-jurata-2024/counter"
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/logic"
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/proto"
 )
@@ -11,6 +12,7 @@ import (
 type Consequences struct {
 	PointCards     map[string]int
 	VegetableCards map[string]map[string]int
+	Priorities     *DynamicCardPriority
 }
 
 func Start(gameState *proto.GameState) Consequences {
@@ -18,8 +20,13 @@ func Start(gameState *proto.GameState) Consequences {
 		PointCards:     make(map[string]int),
 		VegetableCards: make(map[string]map[string]int),
 	}
+
 	bytes, _ := json.Marshal(gameState)
 	logicState := logic.GetStateLog(gameState)
+	vegCounter := counter.Start(gameState)
+	dynamicPriority := NewDynamicCardPriority(&vegCounter)
+	dynamicPriority.UpdatePriorities(gameState.YourHand, gameState.OpponentsHands, gameState.Market)
+
 	for _, card := range gameState.Market.PointCards {
 		var game proto.GameState
 		json.Unmarshal(bytes, &game)
@@ -55,6 +62,7 @@ func Start(gameState *proto.GameState) Consequences {
 					-logicState.Hands["me"].CurrentScore
 		}
 	}
+	c.Priorities = dynamicPriority
 
 	return c
 }
