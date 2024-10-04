@@ -106,7 +106,11 @@ func main() {
 		slog.Info("Counter started", slog.String("counter", cardsCounter.String()))
 		for !gameState.IsGameOver {
 			for {
-				slog.Info("State log", slog.Int("currentScore", logic.GetStateLog(gameState).Hands["me"].CurrentScore))
+				logicState := logic.GetStateLog(gameState)
+				slog.Info("State log",
+					slog.Int("myCrrentScore", logicState.Hands["me"].CurrentScore),
+					slog.Int("opponentCurrentScore", logicState.Hands["opponent"].CurrentScore),
+				)
 				move := &proto.MoveRequest{
 					RoomID:   roomState.RoomID,
 					PlayerID: roomState.PlayerID,
