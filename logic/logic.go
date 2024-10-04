@@ -2,6 +2,7 @@ package logic
 
 import (
 	"fmt"
+	"log/slog"
 	"time"
 
 	"slices"
@@ -314,20 +315,7 @@ func GetStateLog(gameState *proto.GameState) *State {
 	}
 	myVegetables := map[vegetableType]int{}
 	for _, card := range gameState.YourHand.Vegetables {
-		switch card.VegetableType {
-		case proto.VegetableType_TOMATO:
-			myVegetables[Tomato] = int(card.Count)
-		case proto.VegetableType_CARROT:
-			myVegetables[Carrot] = int(card.Count)
-		case proto.VegetableType_LETTUCE:
-			myVegetables[Lettuce] = int(card.Count)
-		case proto.VegetableType_CABBAGE:
-			myVegetables[Cabbage] = int(card.Count)
-		case proto.VegetableType_PEPPER:
-			myVegetables[Pepper] = int(card.Count)
-		case proto.VegetableType_ONION:
-			myVegetables[Onion] = int(card.Count)
-		}
+		myVegetables[getVegetableType(card.VegetableType)] = int(card.Count)
 	}
 	playersHands := map[string]*playerHand{}
 	playersHands["me"] = &playerHand{
@@ -336,7 +324,40 @@ func GetStateLog(gameState *proto.GameState) *State {
 		Vegetables:   myVegetables,
 	}
 
+	opponentsPointCards := []string{}
+	for _, card := range gameState.OpponentsHands[0].PointCards {
+		opponentsPointCards = append(opponentsPointCards, card.CardID)
+	}
+	opponentsVegetables := map[vegetableType]int{}
+	for _, card := range gameState.OpponentsHands[0].Vegetables {
+		opponentsVegetables[getVegetableType(card.VegetableType)] = int(card.Count)
+	}
+	playersHands["opponent"] = &playerHand{
+		CurrentScore: 0,
+		PointCards:   opponentsPointCards,
+		Vegetables:   opponentsVegetables,
+	}
+
 	return s.GetStateLog(playersHands, countPoints(playersHands))
+}
+
+func getVegetableType(vegType proto.VegetableType) vegetableType {
+	switch vegType {
+	case proto.VegetableType_TOMATO:
+		return Tomato
+	case proto.VegetableType_CARROT:
+		return Carrot
+	case proto.VegetableType_LETTUCE:
+		return Lettuce
+	case proto.VegetableType_CABBAGE:
+		return Cabbage
+	case proto.VegetableType_PEPPER:
+		return Pepper
+	case proto.VegetableType_ONION:
+		return Onion
+	}
+	slog.Warn("Unknown vegetable type", slog.Any("vegType", vegType))
+	return ""
 }
 
 func countPoints(playersHands map[string]*playerHand) func(playerID string) int {
