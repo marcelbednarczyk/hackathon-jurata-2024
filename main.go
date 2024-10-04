@@ -8,10 +8,10 @@ import (
 	"strings"
 	"time"
 
+	"github.com/marcelbednarczyk/hackathon-jurata-2024/bot"
+	"github.com/marcelbednarczyk/hackathon-jurata-2024/counter"
+	"github.com/marcelbednarczyk/hackathon-jurata-2024/proto"
 	"github.com/phsym/console-slog"
-	"gitlab.com/hackathon-rainbow-2024/go-client/bot"
-	"gitlab.com/hackathon-rainbow-2024/go-client/counter"
-	"gitlab.com/hackathon-rainbow-2024/go-client/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials/insecure"

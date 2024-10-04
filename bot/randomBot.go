@@ -3,7 +3,7 @@ package bot
 import (
 	"math/rand"
 
-	"gitlab.com/hackathon-rainbow-2024/go-client/proto"
+	"github.com/marcelbednarczyk/hackathon-jurata-2024/proto"
 )
 
 type randomBot struct{}

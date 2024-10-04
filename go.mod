@@ -1,4 +1,4 @@
-module gitlab.com/hackathon-rainbow-2024/go-client
+module github.com/marcelbednarczyk/hackathon-jurata-2024
 
 go 1.22.3
 
@@ -9,6 +9,7 @@ require (
 )
 
 require (
+	github.com/google/uuid v1.6.0
 	golang.org/x/net v0.26.0 // indirect
 	golang.org/x/sys v0.21.0 // indirect
 	golang.org/x/text v0.16.0 // indirect
