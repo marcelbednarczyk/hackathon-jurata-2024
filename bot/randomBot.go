@@ -12,7 +12,7 @@ func NewRandomBot() *randomBot {
 	return &randomBot{}
 }
 
-func (b *randomBot) MakeTakeCardsMove(state *proto.GameState) []string {
+func (b *randomBot) MakeTakeCardsMove(state *proto.GameState, _ int) []string {
 	if (rand.Intn(2) == 0 && notEmpty(state.Market.PointCards)) || !notEmpty(state.Market.VegetableCards) {
 		return []string{takeRandomNotNullCard(state.Market.PointCards)}
 	}

@@ -15,7 +15,7 @@
                 "--addr", "hackaton-2024.rainbowtours.pl:80",
                 "--room", "TEST1", 
                 "--new", 
-                "--count", "1",
+                "--count", "20",
                 // "--debug", "true",
             ]
         },
@@ -29,6 +29,7 @@
                 "--name", "McQueen",
                 "--addr", "hackaton-2024.rainbowtours.pl:80",
                 "--room", "TEST1",
+                "--bot", "greedy",
                 // "--debug", "true",
             ]
         },

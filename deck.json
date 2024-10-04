@@ -1,0 +1,1460 @@
+[
+    {
+        "cardId": "TomatoPPVOne",
+        "vegetable": "Tomato",
+        "pointType": "PointsPerVegetableOne",
+        "details": [
+            {
+                "vegetable": "Onion",
+                "points": 2
+            }
+        ]
+    },
+    {
+        "cardId": "TomatoPPVTwo1",
+        "vegetable": "Tomato",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Onion",
+                "points": 1
+            },
+            {
+                "vegetable": "Cabbage",
+                "points": 1
+            }
+        ]
+    },
+    {
+        "cardId": "TomatoPPVTwo2",
+        "vegetable": "Tomato",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Onion",
+                "points": 1
+            },
+            {
+                "vegetable": "Carrot",
+                "points": 1
+            }
+        ]
+    },
+    {
+        "cardId": "TomatoPPVTwo3",
+        "vegetable": "Tomato",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Onion",
+                "points": 3
+            },
+            {
+                "vegetable": "Pepper",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "TomatoPPVThree1",
+        "vegetable": "Tomato",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Onion",
+                "points": 2
+            },
+            {
+                "vegetable": "Cabbage",
+                "points": 1
+            },
+            {
+                "vegetable": "Tomato",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "TomatoPPVThree2",
+        "vegetable": "Tomato",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Onion",
+                "points": 3
+            },
+            {
+                "vegetable": "Cabbage",
+                "points": -1
+            },
+            {
+                "vegetable": "Tomato",
+                "points": -1
+            }
+        ]
+    },
+    {
+        "cardId": "TomatoPPVThree3",
+        "vegetable": "Tomato",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Onion",
+                "points": 4
+            },
+            {
+                "vegetable": "Carrot",
+                "points": -2
+            },
+            {
+                "vegetable": "Lettuce",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "TomatoPPVThree4",
+        "vegetable": "Tomato",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Onion",
+                "points": 2
+            },
+            {
+                "vegetable": "Pepper",
+                "points": 2
+            },
+            {
+                "vegetable": "Cabbage",
+                "points": -4
+            }
+        ]
+    },
+    {
+        "cardId": "TomatoSumTwo1",
+        "vegetable": "Tomato",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Onion",
+                "Onion"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "TomatoSumTwo2",
+        "vegetable": "Tomato",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Cabbage",
+                "Pepper"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "TomatoSumTwo3",
+        "vegetable": "Tomato",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Carrot",
+                "Lettuce"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "TomatoSumThree1",
+        "vegetable": "Tomato",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Onion",
+                "Onion",
+                "Onion"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "TomatoSumThree2",
+        "vegetable": "Tomato",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Tomato",
+                "Onion",
+                "Lettuce"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "TomatoSumThree3",
+        "vegetable": "Tomato",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Carrot",
+                "Onion",
+                "Pepper"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "TomatoEvenOdd",
+        "vegetable": "Tomato",
+        "pointType": "EvenOdd",
+        "details": {
+            "vegetable": "Onion",
+            "even": 7,
+            "odd": 3
+        }
+    },
+    {
+        "cardId": "TomatoFewest",
+        "vegetable": "Tomato",
+        "pointType": "Fewest",
+        "details": {
+            "vegetable":"Onion",
+            "points": 7
+        }
+    },
+    {
+        "cardId": "TomatoMost",
+        "vegetable": "Tomato",
+        "pointType": "Most",
+        "details": {
+            "vegetable":"Onion",
+            "points": 10
+        }
+    },
+    {
+        "cardId": "TomatoSpecial",
+        "vegetable": "Tomato",
+        "pointType": "CompleteSet",
+        "details": {
+            "points": 12
+        }
+    },
+    {
+        "cardId": "OnionPPVOne",
+        "vegetable": "Onion",
+        "pointType": "PointsPerVegetableOne",
+        "details": [
+            {
+                "vegetable": "Tomato",
+                "points": 2
+            }
+        ]
+    },
+    {
+        "cardId": "OnionPPVTwo1",
+        "vegetable": "Onion",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Tomato",
+                "points": 1
+            },
+            {
+                "vegetable": "Cabbage",
+                "points": 1
+            }
+        ]
+    },
+    {
+        "cardId": "OnionPPVTwo2",
+        "vegetable": "Onion",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Tomato",
+                "points": 1
+            },
+            {
+                "vegetable": "Carrot",
+                "points": 1
+            }
+        ]
+    },
+    {
+        "cardId": "OnionPPVTwo3",
+        "vegetable": "Onion",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Tomato",
+                "points": 3
+            },
+            {
+                "vegetable": "Lettuce",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "OnionPPVThree1",
+        "vegetable": "Onion",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Tomato",
+                "points": 2
+            },
+            {
+                "vegetable": "Carrot",
+                "points": 1
+            },
+            {
+                "vegetable": "Onion",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "OnionPPVThree2",
+        "vegetable": "Onion",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Tomato",
+                "points": 3
+            },
+            {
+                "vegetable": "Carrot",
+                "points": -1
+            },
+            {
+                "vegetable": "Onion",
+                "points": -1
+            }
+        ]
+    },
+    {
+        "cardId": "OnionPPVThree3",
+        "vegetable": "Onion",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Tomato",
+                "points": 4
+            },
+            {
+                "vegetable": "Cabbage",
+                "points": -2
+            },
+            {
+                "vegetable": "Pepper",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "OnionPPVThree4",
+        "vegetable": "Onion",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Tomato",
+                "points": 2
+            },
+            {
+                "vegetable": "Lettuce",
+                "points": 2
+            },
+            {
+                "vegetable": "Carrot",
+                "points": -4
+            }
+        ]
+    },
+    {
+        "cardId": "OnionSumTwo1",
+        "vegetable": "Onion",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Tomato",
+                "Tomato"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "OnionSumTwo2",
+        "vegetable": "Onion",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Cabbage",
+                "Lettuce"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "OnionSumTwo3",
+        "vegetable": "Onion",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Carrot",
+                "Pepper"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "OnionSumThree1",
+        "vegetable": "Onion",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Tomato",
+                "Tomato",
+                "Tomato"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "OnionSumThree2",
+        "vegetable": "Onion",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Onion",
+                "Tomato",
+                "Pepper"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "OnionSumThree3",
+        "vegetable": "Onion",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Cabbage",
+                "Tomato",
+                "Lettuce"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "OnionEvenOdd",
+        "vegetable": "Onion",
+        "pointType": "EvenOdd",
+        "details": {
+            "vegetable": "Tomato",
+            "even": 7,
+            "odd": 3
+        }
+    },
+    {
+        "cardId": "OnionFewest",
+        "vegetable": "Onion",
+        "pointType": "Fewest",
+        "details": {
+            "vegetable":"Tomato",
+            "points": 7
+        }
+    },
+    {
+        "cardId": "OnionMost",
+        "vegetable": "Onion",
+        "pointType": "Most",
+        "details": {
+            "vegetable":"Tomato",
+            "points": 10
+        }
+    },
+    {
+        "cardId": "OnionSpecial",
+        "vegetable": "Onion",
+        "pointType": "AtLeastTwo",
+        "details": {
+            "points": 3
+        }
+    },
+    {
+        "cardId": "CabbagePPVOne",
+        "vegetable": "Cabbage",
+        "pointType": "PointsPerVegetableOne",
+        "details": [
+            {
+                "vegetable": "Carrot",
+                "points": 2
+            }
+        ]
+    },
+    {
+        "cardId": "CabbagePPVTwo1",
+        "vegetable": "Cabbage",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Carrot",
+                "points": 1
+            },
+            {
+                "vegetable": "Lettuce",
+                "points": 1
+            }
+        ]
+    },
+    {
+        "cardId": "CabbagePPVTwo2",
+        "vegetable": "Cabbage",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Carrot",
+                "points": 1
+            },
+            {
+                "vegetable": "Pepper",
+                "points": 1
+            }
+        ]
+    },
+    {
+        "cardId": "CabbagePPVTwo3",
+        "vegetable": "Cabbage",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Carrot",
+                "points": 3
+            },
+            {
+                "vegetable": "Onion",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "CabbagePPVThree1",
+        "vegetable": "Cabbage",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Carrot",
+                "points": 2
+            },
+            {
+                "vegetable": "Pepper",
+                "points": 1
+            },
+            {
+                "vegetable": "Cabbage",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "CabbagePPVThree2",
+        "vegetable": "Cabbage",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Carrot",
+                "points": 3
+            },
+            {
+                "vegetable": "Pepper",
+                "points": -1
+            },
+            {
+                "vegetable": "Cabbage",
+                "points": -1
+            }
+        ]
+    },
+    {
+        "cardId": "CabbagePPVThree3",
+        "vegetable": "Cabbage",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Carrot",
+                "points": 4
+            },
+            {
+                "vegetable": "Lettuce",
+                "points": -2
+            },
+            {
+                "vegetable": "Tomato",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "CabbagePPVThree4",
+        "vegetable": "Cabbage",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Carrot",
+                "points": 2
+            },
+            {
+                "vegetable": "Onion",
+                "points": 2
+            },
+            {
+                "vegetable": "Pepper",
+                "points": -4
+            }
+        ]
+    },
+    {
+        "cardId": "CabbageSumTwo1",
+        "vegetable": "Cabbage",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Carrot",
+                "Carrot"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "CabbageSumTwo2",
+        "vegetable": "Cabbage",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Tomato",
+                "Pepper"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "CabbageSumTwo3",
+        "vegetable": "Cabbage",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Lettuce",
+                "Onion"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "CabbageSumThree1",
+        "vegetable": "Cabbage",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Carrot",
+                "Carrot",
+                "Carrot"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "CabbageSumThree2",
+        "vegetable": "Cabbage",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Lettuce",
+                "Carrot",
+                "Onion"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "CabbageSumThree3",
+        "vegetable": "Cabbage",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Cabbage",
+                "Carrot",
+                "Tomato"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "CabbageEvenOdd",
+        "vegetable": "Cabbage",
+        "pointType": "EvenOdd",
+        "details": {
+            "vegetable": "Carrot",
+            "even": 7,
+            "odd": 3
+        }
+    },
+    {
+        "cardId": "CabbageFewest",
+        "vegetable": "Cabbage",
+        "pointType": "Fewest",
+        "details": {
+            "vegetable":"Carrot",
+            "points": 7
+        }
+    },
+    {
+        "cardId": "CabbageMost",
+        "vegetable": "Cabbage",
+        "pointType": "Most",
+        "details": {
+            "vegetable":"Carrot",
+            "points": 10
+        }
+    },
+    {
+        "cardId": "CabbageSpecial",
+        "vegetable": "Cabbage",
+        "pointType": "MissingVegetable",
+        "details": {
+            "points": 5
+        }
+    },
+    {
+        "cardId": "CarrotPPVOne",
+        "vegetable": "Carrot",
+        "pointType": "PointsPerVegetableOne",
+        "details": [
+            {
+                "vegetable": "Cabbage",
+                "points": 2
+            }
+        ]
+    },
+    {
+        "cardId": "CarrotPPVTwo1",
+        "vegetable": "Carrot",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Cabbage",
+                "points": 1
+            },
+            {
+                "vegetable": "Lettuce",
+                "points": 1
+            }
+        ]
+    },
+    {
+        "cardId": "CarrotPPVTwo2",
+        "vegetable": "Carrot",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Cabbage",
+                "points": 1
+            },
+            {
+                "vegetable": "Pepper",
+                "points": 1
+            }
+        ]
+    },
+    {
+        "cardId": "CarrotPPVTwo3",
+        "vegetable": "Carrot",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Cabbage",
+                "points": 3
+            },
+            {
+                "vegetable": "Tomato",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "CarrotPPVThree1",
+        "vegetable": "Carrot",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Cabbage",
+                "points": 2
+            },
+            {
+                "vegetable": "Lettuce",
+                "points": 1
+            },
+            {
+                "vegetable": "Carrot",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "CarrotPPVThree2",
+        "vegetable": "Carrot",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Cabbage",
+                "points": 3
+            },
+            {
+                "vegetable": "Lettuce",
+                "points": -1
+            },
+            {
+                "vegetable": "Carrot",
+                "points": -1
+            }
+        ]
+    },
+    {
+        "cardId": "CarrotPPVThree3",
+        "vegetable": "Carrot",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Cabbage",
+                "points": 4
+            },
+            {
+                "vegetable": "Pepper",
+                "points": -2
+            },
+            {
+                "vegetable": "Onion",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "CarrotPPVThree4",
+        "vegetable": "Carrot",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Cabbage",
+                "points": 2
+            },
+            {
+                "vegetable": "Tomato",
+                "points": 2
+            },
+            {
+                "vegetable": "Lettuce",
+                "points": -4
+            }
+        ]
+    },
+    {
+        "cardId": "CarrotSumTwo1",
+        "vegetable": "Carrot",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Cabbage",
+                "Cabbage"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "CarrotSumTwo2",
+        "vegetable": "Carrot",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Onion",
+                "Pepper"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "CarrotSumTwo3",
+        "vegetable": "Carrot",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Tomato",
+                "Lettuce"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "CarrotSumThree1",
+        "vegetable": "Carrot",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Cabbage",
+                "Cabbage",
+                "Cabbage"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "CarrotSumThree2",
+        "vegetable": "Carrot",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Pepper",
+                "Cabbage",
+                "Tomato"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "CarrotSumThree3",
+        "vegetable": "Carrot",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Carrot",
+                "Cabbage",
+                "Onion"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "CarrotEvenOdd",
+        "vegetable": "Carrot",
+        "pointType": "EvenOdd",
+        "details": {
+            "vegetable": "Cabbage",
+            "even": 7,
+            "odd": 3
+        }
+    },
+    {
+        "cardId": "CarrotFewest",
+        "vegetable": "Carrot",
+        "pointType": "Fewest",
+        "details": {
+            "vegetable":"Cabbage",
+            "points": 7
+        }
+    },
+    {
+        "cardId": "CarrotMost",
+        "vegetable": "Carrot",
+        "pointType": "Most",
+        "details": {
+            "vegetable":"Cabbage",
+            "points": 10
+        }
+    },
+    {
+        "cardId": "CarrotSpecial",
+        "vegetable": "Carrot",
+        "pointType": "AtLeastThree",
+        "details": {
+            "points": 5
+        }
+    },
+    {
+        "cardId": "PepperPPVOne",
+        "vegetable": "Pepper",
+        "pointType": "PointsPerVegetableOne",
+        "details": [
+            {
+                "vegetable": "Lettuce",
+                "points": 2
+            }
+        ]
+    },
+    {
+        "cardId": "PepperPPVTwo1",
+        "vegetable": "Pepper",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Lettuce",
+                "points": 1
+            },
+            {
+                "vegetable": "Tomato",
+                "points": 1
+            }
+        ]
+    },
+    {
+        "cardId": "PepperPPVTwo2",
+        "vegetable": "Pepper",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Lettuce",
+                "points": 1
+            },
+            {
+                "vegetable": "Onion",
+                "points": 1
+            }
+        ]
+    },
+    {
+        "cardId": "PepperPPVTwo3",
+        "vegetable": "Pepper",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Lettuce",
+                "points": 3
+            },
+            {
+                "vegetable": "Carrot",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "PepperPPVThree1",
+        "vegetable": "Pepper",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Lettuce",
+                "points": 2
+            },
+            {
+                "vegetable": "Onion",
+                "points": 1
+            },
+            {
+                "vegetable": "Pepper",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "PepperPPVThree2",
+        "vegetable": "Pepper",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Lettuce",
+                "points": 3
+            },
+            {
+                "vegetable": "Onion",
+                "points": -1
+            },
+            {
+                "vegetable": "Pepper",
+                "points": -1
+            }
+        ]
+    },
+    {
+        "cardId": "PepperPPVThree3",
+        "vegetable": "Pepper",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Lettuce",
+                "points": 4
+            },
+            {
+                "vegetable": "Tomato",
+                "points": -2
+            },
+            {
+                "vegetable": "Cabbage",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "PepperPPVThree4",
+        "vegetable": "Pepper",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Lettuce",
+                "points": 2
+            },
+            {
+                "vegetable": "Carrot",
+                "points": 2
+            },
+            {
+                "vegetable": "Onion",
+                "points": -4
+            }
+        ]
+    },
+    {
+        "cardId": "PepperSumTwo1",
+        "vegetable": "Pepper",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Lettuce",
+                "Lettuce"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "PepperSumTwo2",
+        "vegetable": "Pepper",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Cabbage",
+                "Tomato"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "PepperSumTwo3",
+        "vegetable": "Pepper",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Carrot",
+                "Onion"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "PepperSumThree1",
+        "vegetable": "Pepper",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Lettuce",
+                "Lettuce",
+                "Lettuce"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "PepperSumThree2",
+        "vegetable": "Pepper",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Tomato",
+                "Lettuce",
+                "Carrot"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "PepperSumThree3",
+        "vegetable": "Pepper",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Pepper",
+                "Lettuce",
+                "Cabbage"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "PepperEvenOdd",
+        "vegetable": "Pepper",
+        "pointType": "EvenOdd",
+        "details": {
+            "vegetable": "Lettuce",
+            "even": 7,
+            "odd": 3
+        }
+    },
+    {
+        "cardId": "PepperFewest",
+        "vegetable": "Pepper",
+        "pointType": "Fewest",
+        "details": {
+            "vegetable":"Lettuce",
+            "points": 7
+        }
+    },
+    {
+        "cardId": "PepperMost",
+        "vegetable": "Pepper",
+        "pointType": "Most",
+        "details": {
+            "vegetable":"Lettuce",
+            "points": 10
+        }
+    },
+    {
+        "cardId": "PepperSpecial",
+        "vegetable": "Pepper",
+        "pointType": "MostTotal",
+        "details": {
+            "points": 10
+        }
+    },
+    {
+        "cardId": "LettucePPVOne",
+        "vegetable": "Lettuce",
+        "pointType": "PointsPerVegetableOne",
+        "details": [
+            {
+                "vegetable": "Pepper",
+                "points": 2
+            }
+        ]
+    },
+    {
+        "cardId": "LettucePPVTwo1",
+        "vegetable": "Lettuce",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Pepper",
+                "points": 1
+            },
+            {
+                "vegetable": "Tomato",
+                "points": 1
+            }
+        ]
+    },
+    {
+        "cardId": "LettucePPVTwo2",
+        "vegetable": "Lettuce",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Pepper",
+                "points": 1
+            },
+            {
+                "vegetable": "Onion",
+                "points": 1
+            }
+        ]
+    },
+    {
+        "cardId": "LettucePPVTwo3",
+        "vegetable": "Lettuce",
+        "pointType": "PointsPerVegetableTwo",
+        "details": [
+            {
+                "vegetable": "Pepper",
+                "points": 3
+            },
+            {
+                "vegetable": "Cabbage",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "LettucePPVThree1",
+        "vegetable": "Lettuce",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Pepper",
+                "points": 2
+            },
+            {
+                "vegetable": "Tomato",
+                "points": 1
+            },
+            {
+                "vegetable": "Lettuce",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "LettucePPVThree2",
+        "vegetable": "Lettuce",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Pepper",
+                "points": 3
+            },
+            {
+                "vegetable": "Tomato",
+                "points": -1
+            },
+            {
+                "vegetable": "Lettuce",
+                "points": -1
+            }
+        ]
+    },
+    {
+        "cardId": "LettucePPVThree3",
+        "vegetable": "Lettuce",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Pepper",
+                "points": 4
+            },
+            {
+                "vegetable": "Onion",
+                "points": -2
+            },
+            {
+                "vegetable": "Carrot",
+                "points": -2
+            }
+        ]
+    },
+    {
+        "cardId": "LettucePPVThree4",
+        "vegetable": "Lettuce",
+        "pointType": "PointsPerVegetableThree",
+        "details": [
+            {
+                "vegetable": "Pepper",
+                "points": 2
+            },
+            {
+                "vegetable": "Cabbage",
+                "points": 2
+            },
+            {
+                "vegetable": "Tomato",
+                "points": -4
+            }
+        ]
+    },
+    {
+        "cardId": "LettuceSumTwo1",
+        "vegetable": "Lettuce",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Pepper",
+                "Pepper"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "LettuceSumTwo2",
+        "vegetable": "Lettuce",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Cabbage",
+                "Onion"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "LettuceSumTwo3",
+        "vegetable": "Lettuce",
+        "pointType": "SumTwo",
+        "details": {
+            "vegetables": [
+                "Carrot",
+                "Tomato"
+            ],
+            "points": 5
+        }
+    },
+    {
+        "cardId": "LettuceSumThree1",
+        "vegetable": "Lettuce",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Pepper",
+                "Pepper",
+                "Pepper"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "LettuceSumThree2",
+        "vegetable": "Lettuce",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Onion",
+                "Pepper",
+                "Cabbage"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "LettuceSumThree3",
+        "vegetable": "Lettuce",
+        "pointType": "SumThree",
+        "details": {
+            "vegetables": [
+                "Lettuce",
+                "Pepper",
+                "Carrot"
+            ],
+            "points": 8
+        }
+    },
+    {
+        "cardId": "LettuceEvenOdd",
+        "vegetable": "Lettuce",
+        "pointType": "EvenOdd",
+        "details": {
+            "vegetable": "Pepper",
+            "even": 7,
+            "odd": 3
+        }
+    },
+    {
+        "cardId": "LettuceFewest",
+        "vegetable": "Lettuce",
+        "pointType": "Fewest",
+        "details": {
+            "vegetable":"Pepper",
+            "points": 7
+        }
+    },
+    {
+        "cardId": "LettuceMost",
+        "vegetable": "Lettuce",
+        "pointType": "Most",
+        "details": {
+            "vegetable":"Pepper",
+            "points": 10
+        }
+    },
+    {
+        "cardId": "LettuceSpecial",
+        "vegetable": "Lettuce",
+        "pointType": "FewestTotal",
+        "details": {
+            "points": 7
+        }
+    }
+]

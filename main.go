@@ -10,6 +10,7 @@ import (
 
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/bot"
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/counter"
+	"github.com/marcelbednarczyk/hackathon-jurata-2024/logic"
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/proto"
 	"github.com/phsym/console-slog"
 	"google.golang.org/grpc"
@@ -33,6 +34,7 @@ var (
 	roomID     = flag.String("room", "", "join a room with this id")
 	gameCount  = flag.Int("count", 1, "number of games to play")
 	debug      = flag.Bool("debug", false, "enable debug logs")
+	botType    = flag.String("bot", "random", "bot type")
 )
 
 func init() {
@@ -86,17 +88,25 @@ func main() {
 	roomState := mustJoinRoom(client, *roomID, *playerName)
 	slog.Info("Joined room", slog.Any("roomState", roomState))
 	for roomState.StartNextGame {
-		bot := bot.NewRandomBot()
+		var b bot.Bot
+		switch *botType {
+		case "greedy":
+			b = bot.NewGreedyBot()
+		default:
+			b = bot.NewRandomBot()
+		}
 		gameState, err := getCurrentGameState(client, roomState.RoomID, roomState.PlayerID)
 		if err != nil {
 			slog.Error("Failed to get current game state", slog.Any("error", err))
 			os.Exit(1)
 		}
 
+		i := 0
 		cardsCounter := counter.Start(gameState)
 		slog.Info("Counter started", slog.String("counter", cardsCounter.String()))
 		for !gameState.IsGameOver {
 			for {
+				slog.Info("State log", slog.Int("currentScore", logic.GetStateLog(gameState).Hands["me"].CurrentScore))
 				move := &proto.MoveRequest{
 					RoomID:   roomState.RoomID,
 					PlayerID: roomState.PlayerID,
@@ -104,9 +114,9 @@ func main() {
 				}
 
 				if gameState.MoveToMake == proto.MoveType_TAKE_CARDS {
-					move.Cards = bot.MakeTakeCardsMove(gameState)
+					move.Cards = b.MakeTakeCardsMove(gameState, i)
 				} else {
-					move.Cards = bot.MakeFlipMove(gameState)
+					move.Cards = b.MakeFlipMove(gameState)
 				}
 
 				newState, err := makeMove(client, move)
@@ -125,6 +135,7 @@ func main() {
 				gameState = newState
 				break
 			}
+			i++
 		}
 		roomState, err = getRoomState(client, roomState.RoomID, roomState.PlayerID)
 		if err != nil {

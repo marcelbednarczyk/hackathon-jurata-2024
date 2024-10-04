@@ -7,6 +7,7 @@ import (
 	"slices"
 
 	"github.com/google/uuid"
+	"github.com/marcelbednarczyk/hackathon-jurata-2024/proto"
 )
 
 type gameLogic struct {
@@ -289,6 +290,70 @@ func (l *gameLogic) gameOver() {
 	}
 }
 
+func GetStateLog(gameState *proto.GameState) *State {
+	pointCards := [MARKET_WIDTH]string{}
+	for i, card := range gameState.Market.PointCards {
+		pointCards[i] = card.CardID
+	}
+
+	vegetableCards := [MARKET_WIDTH][MARKET_HEIGHT]string{}
+	for i, card := range gameState.Market.VegetableCards {
+		width, height := i/MARKET_WIDTH, i%MARKET_HEIGHT
+		vegetableCards[width][height] = card.CardID
+	}
+	s := &State{
+		IsFlip:         gameState.MoveToMake == proto.MoveType_FLIP_CARD,
+		PlayerTurn:     gameState.PlayerToMove,
+		PointCards:     pointCards,
+		VegetableCards: vegetableCards,
+	}
+
+	myPointCards := []string{}
+	for _, card := range gameState.YourHand.PointCards {
+		myPointCards = append(myPointCards, card.CardID)
+	}
+	myVegetables := map[vegetableType]int{}
+	for _, card := range gameState.YourHand.Vegetables {
+		switch card.VegetableType {
+		case proto.VegetableType_TOMATO:
+			myVegetables[Tomato] = int(card.Count)
+		case proto.VegetableType_CARROT:
+			myVegetables[Carrot] = int(card.Count)
+		case proto.VegetableType_LETTUCE:
+			myVegetables[Lettuce] = int(card.Count)
+		case proto.VegetableType_CABBAGE:
+			myVegetables[Cabbage] = int(card.Count)
+		case proto.VegetableType_PEPPER:
+			myVegetables[Pepper] = int(card.Count)
+		case proto.VegetableType_ONION:
+			myVegetables[Onion] = int(card.Count)
+		}
+	}
+	playersHands := map[string]*playerHand{}
+	playersHands["me"] = &playerHand{
+		CurrentScore: 0,
+		PointCards:   myPointCards,
+		Vegetables:   myVegetables,
+	}
+
+	return s.GetStateLog(playersHands, countPoints(playersHands))
+}
+
+func countPoints(playersHands map[string]*playerHand) func(playerID string) int {
+	return func(playerID string) int {
+		playerHand := playersHands[playerID]
+		points := 0
+		for _, cardID := range playerHand.PointCards {
+			card := Deck[cardID]
+			if card == nil {
+				continue
+			}
+			points += scoreCard(playerID, playersHands, card)
+		}
+		return points
+	}
+}
+
 func (l *gameLogic) GetStateLog() *State {
 	s := &State{
 		IsFlip:         l.isFlipNext,
@@ -296,13 +361,16 @@ func (l *gameLogic) GetStateLog() *State {
 		PointCards:     l.market.pointCards,
 		VegetableCards: l.market.vegetableCards,
 	}
+	return s.GetStateLog(l.playersHands, l.countPoints)
+}
 
+func (s *State) GetStateLog(playersHands map[string]*playerHand, countPoints func(string) int) *State {
 	handMap := make(map[string]playerHand)
 	defer func() {
 		handMap = nil
 	}()
 
-	for id, h := range l.playersHands {
+	for id, h := range playersHands {
 		// tutaj akrobacje bo mapy się psuły i nadpisywały
 		nowaMapa := map[vegetableType]int{}
 		for k, v := range h.Vegetables {
@@ -310,7 +378,7 @@ func (l *gameLogic) GetStateLog() *State {
 		}
 
 		handMap[id] = playerHand{
-			CurrentScore: l.countPoints(id),
+			CurrentScore: countPoints(id),
 			PointCards:   append([]string{}, h.PointCards...),
 			Vegetables:   nowaMapa,
 		}
