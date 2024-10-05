@@ -59,7 +59,7 @@
             "env": {
                 "PREDICT": "true",
                 "SKATER": "true",
-                "CARD_CHANCE": "0.73"
+                "CARD_CHANCE": "0.725"
             }
         },
         {
@@ -81,9 +81,8 @@
             ],
             "env": {
                 "PREDICT": "true",
-                "CARD_CHANCE": "0.73",
+                "CARD_CHANCE": "0.725",
                 "SKATER": "true",
-                "SKATEPARK": "true",
             }
         },
     ]
