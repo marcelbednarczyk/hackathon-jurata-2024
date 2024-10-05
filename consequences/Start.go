@@ -3,7 +3,9 @@ package consequences
 import (
 	"encoding/json"
 	"log/slog"
+	"os"
 
+	"github.com/marcelbednarczyk/hackathon-jurata-2024/counter"
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/logic"
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/proto"
 )
@@ -13,10 +15,13 @@ type Consequences struct {
 	VegetableCards map[string]map[string]int
 }
 
-func Start(gameState *proto.GameState) Consequences {
+func Start(gameState *proto.GameState, cou counter.Counter) Consequences {
 	c := Consequences{
 		PointCards:     make(map[string]int),
 		VegetableCards: make(map[string]map[string]int),
+	}
+	if os.Getenv("PREDICT") == "true" {
+		Prediction(gameState, cou)
 	}
 	bytes, _ := json.Marshal(gameState)
 	logicState := logic.GetStateLog(gameState)

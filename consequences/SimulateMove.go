@@ -21,16 +21,16 @@ func SimulateMove(gameState proto.GameState, cards ...*proto.Card) proto.GameSta
 		gameState.YourHand.PointCards = append(gameState.YourHand.PointCards, cards[0])
 	} else {
 		for i := 0; i < len(cards); i++ {
-			veggieHand(gameState.YourHand, cards, i)
+			veggieHand(gameState.YourHand, cards[i])
 		}
 	}
 	return gameState
 }
 
-func veggieHand(hand *proto.Hand, cards []*proto.Card, i int) {
+func veggieHand(hand *proto.Hand, card *proto.Card) {
 	found := false
 	for _, held := range hand.Vegetables {
-		if held.VegetableType == cards[i].Vegetable {
+		if held.VegetableType == card.Vegetable {
 			held.Count++
 			found = true
 			break
@@ -38,7 +38,7 @@ func veggieHand(hand *proto.Hand, cards []*proto.Card, i int) {
 	}
 	if !found {
 		hand.Vegetables = append(hand.Vegetables, &proto.VegtableHeld{
-			VegetableType: cards[i].Vegetable,
+			VegetableType: card.Vegetable,
 			Count:         1,
 		})
 	}

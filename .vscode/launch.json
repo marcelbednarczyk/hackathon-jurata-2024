@@ -20,18 +20,42 @@
             ]
         },
         {
-            "name": "JOIN",
+            "name": "NEW V1",
             "type": "go",
             "request": "launch",
             "mode": "auto",
             "program": "${workspaceFolder}",
             "args": [
-                "--name", "MateMaks",
+                "--name", "SolucjaTymczasowa🔜",
                 "--addr", "hackaton-2024.rainbowtours.pl:80",
                 "--room", "TEST1",
+                "--new", 
+                "--count", "20",
                 "--bot", "solucjaTymczasowa",
                 // "--debug", "true",
-            ]
+            ],
+            "env": {
+                "PREDICT": "false"
+            }
+        },
+        {
+            "name": "JOIN V2",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}",
+            "args": [
+                "--name", "SolucjaMniejTymczasowa🔜",
+                "--addr", "hackaton-2024.rainbowtours.pl:80",
+                "--room", "TEST1",
+                // "--room", "8JQKC",
+                // "--room", "OAGOM",
+                "--bot", "solucjaTymczasowa",
+                // "--debug", "true",
+            ],
+            "env": {
+                "PREDICT": "true"
+            }
         },
     ]
 }

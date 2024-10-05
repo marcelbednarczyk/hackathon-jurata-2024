@@ -3,6 +3,7 @@ package bot
 import (
 	"math/rand"
 
+	"github.com/marcelbednarczyk/hackathon-jurata-2024/counter"
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/proto"
 )
 
@@ -12,7 +13,7 @@ func NewRandomBot() *randomBot {
 	return &randomBot{}
 }
 
-func (b *randomBot) MakeTakeCardsMove(state *proto.GameState, _ int) []string {
+func (b *randomBot) MakeTakeCardsMove(state *proto.GameState, _ counter.Counter, _ int) []string {
 	if (rand.Intn(2) == 0 && notEmpty(state.Market.PointCards)) || !notEmpty(state.Market.VegetableCards) {
 		return []string{takeRandomNotNullCard(state.Market.PointCards)}
 	}
@@ -20,7 +21,7 @@ func (b *randomBot) MakeTakeCardsMove(state *proto.GameState, _ int) []string {
 	return takeNRandomNotNullCards(state.Market.VegetableCards, 2)
 }
 
-func (b *randomBot) MakeFlipMove(state *proto.GameState) []string {
+func (b *randomBot) MakeFlipMove(state *proto.GameState, _ int) []string {
 	return []string{}
 }
 

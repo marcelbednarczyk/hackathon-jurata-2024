@@ -3,6 +3,7 @@ package bot
 import (
 	"math/rand"
 
+	"github.com/marcelbednarczyk/hackathon-jurata-2024/counter"
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/proto"
 )
 
@@ -12,7 +13,7 @@ func NewGreedyBot() *greedyBot {
 	return &greedyBot{}
 }
 
-func (b *greedyBot) MakeTakeCardsMove(state *proto.GameState, i int) []string {
+func (b *greedyBot) MakeTakeCardsMove(state *proto.GameState, _ counter.Counter, i int) []string {
 	if ok, card := niceToTakePointCard(state, i); ok {
 		return []string{card}
 	}
@@ -53,6 +54,6 @@ func takeNicestCard(vegetables []*proto.VegtableHeld, cards []*proto.Card) strin
 	}
 	return takeRandomNotNullCard(cards)
 }
-func (b *greedyBot) MakeFlipMove(state *proto.GameState) []string {
+func (b *greedyBot) MakeFlipMove(state *proto.GameState, _ int) []string {
 	return []string{}
 }
