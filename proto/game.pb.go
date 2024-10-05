@@ -908,6 +908,7 @@ type Card struct {
 	EvenOdd            *EvenOdd            `protobuf:"bytes,6,opt,name=evenOdd,proto3" json:"evenOdd,omitempty"`
 	FewestMost         *FewestMost         `protobuf:"bytes,7,opt,name=fewestMost,proto3" json:"fewestMost,omitempty"`
 	Other              *Other              `protobuf:"bytes,8,opt,name=other,proto3" json:"other,omitempty"`
+	Value 			int32               `json:"-"`
 }
 
 func (x *Card) Reset() {

@@ -21,7 +21,7 @@ func (b *greedyBot) MakeTakeCardsMove(state *proto.GameState, _ counter.Counter,
 		return []string{takeRandomNotNullCard(state.Market.PointCards)}
 	}
 
-	return takeNRandomNotNullCards(state.Market.VegetableCards, 2)
+	return TakeNRandomNotNullCards(state.Market.VegetableCards, 2)
 }
 
 func niceToTakePointCard(state *proto.GameState, i int) (bool, string) {
