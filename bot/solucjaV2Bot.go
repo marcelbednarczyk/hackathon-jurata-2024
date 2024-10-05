@@ -1,6 +1,8 @@
 package bot
 
 import (
+	"os"
+
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/consequences"
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/counter"
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/proto"
@@ -44,17 +46,19 @@ func (b *solucjaV2Bot) MakeTakeCardsMove(gameState *proto.GameState, cou counter
 }
 
 func (b *solucjaV2Bot) MakeFlipMove(state *proto.GameState, cou counter.Counter, i int) []string {
-	if getLenOfCards(state.Market.PointCards)+getLenOfCards(state.Market.VegetableCards) < 1 {
-		cons := consequences.Flip(state)
-		maxPoints, maxIds := 0, []string{}
-		for id, points := range cons.PointCards {
-			if points > maxPoints && id != "" {
-				maxPoints = points
-				maxIds = []string{id}
+	if os.Getenv("SKATER") == "true" {
+		if getLenOfCards(state.Market.PointCards)+getLenOfCards(state.Market.VegetableCards) < 1 {
+			cons := consequences.Flip(state)
+			maxPoints, maxIds := 0, []string{}
+			for id, points := range cons.PointCards {
+				if points > maxPoints && id != "" {
+					maxPoints = points
+					maxIds = []string{id}
+				}
 			}
-		}
-		if len(maxIds) != 0 {
-			return maxIds
+			if len(maxIds) != 0 {
+				return maxIds
+			}
 		}
 	}
 	return []string{}
