@@ -54,6 +54,6 @@ func takeNicestCard(vegetables []*proto.VegtableHeld, cards []*proto.Card) strin
 	}
 	return takeRandomNotNullCard(cards)
 }
-func (b *greedyBot) MakeFlipMove(state *proto.GameState, _ int) []string {
+func (b *greedyBot) MakeFlipMove(state *proto.GameState, _ counter.Counter, _ int) []string {
 	return []string{}
 }
