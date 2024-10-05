@@ -1,8 +1,6 @@
 package bot
 
 import (
-	"os"
-
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/consequences"
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/counter"
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/proto"
@@ -19,60 +17,30 @@ func NewSolucjaV2Bot() *solucjaV2Bot {
 }
 
 func (b *solucjaV2Bot) MakeTakeCardsMove(gameState *proto.GameState, cou counter.Counter, i int) []string {
-	maxPoints, maxIds := 0, []string{}
-	isMultipleChoice := false
+	balancer := 1
+	maxPoints, maxIds := -999, []string{}
 	cons := consequences.Start(gameState, cou)
 	for id, points := range cons.PointCards {
 		// slog.Info("Point card", slog.String("id", id), slog.Int("points", points))
-		if points > maxPoints && id != "" {
-			if points == maxPoints {
-				isMultipleChoice = true
-			} else {
-				isMultipleChoice = false
-			}
-			maxPoints = points
+		if points-balancer > maxPoints && id != "" {
 			maxIds = []string{id}
+			maxPoints = points - balancer
 		}
 	}
+
 	for id, cards := range cons.VegetableCards {
 		for id2, points := range cards {
 			// slog.Info("Vegetable card", slog.String("id", id), slog.String("id2", id2), slog.Int("points", points))
-			if points > maxPoints && id != "" && id2 != "" {
-				if points == maxPoints {
-					isMultipleChoice = true
-				} else {
-					isMultipleChoice = false
-				}
-				maxPoints = points
+			if points+balancer > maxPoints && id != "" && id2 != "" {
 				maxIds = []string{id, id2}
+				maxPoints = points + balancer
 			}
 		}
 	}
-	if isMultipleChoice {
-
-	}
-	sum := 0
-	if len(maxIds) == 0 || (i < 3 && os.Getenv("PREDICT") != "true") {
+	if len(maxIds) == 0 {
 		return b.greedy.MakeTakeCardsMove(gameState, cou, i)
-	} else {
-		for _, card := range gameState.Market.PointCards {
-			if card.CardID == maxIds[0] {
-				sum++
-			}
-		}
-		for _, card := range gameState.Market.VegetableCards {
-			for _, id := range maxIds {
-				if card.CardID == id {
-					sum++
-				}
-			}
-		}
-		if sum == len(maxIds) {
-			return maxIds
-		} else {
-			return b.greedy.MakeTakeCardsMove(gameState, cou, i)
-		}
 	}
+	return maxIds
 }
 
 func (b *solucjaV2Bot) MakeFlipMove(state *proto.GameState, i int) []string {

@@ -107,14 +107,14 @@ func main() {
 
 		i := 0
 		cardsCounter := counter.Start(gameState)
-		slog.Info("Counter started", slog.String("counter", cardsCounter.String()))
+		// slog.Info("Counter started", slog.String("counter", cardsCounter.String()))
 		for !gameState.IsGameOver {
 			for {
-				logicState := logic.GetStateLog(gameState)
-				slog.Info("State log",
-					slog.Int("myCrrentScore", logicState.Hands["me"].CurrentScore),
-					slog.Int("opponentCurrentScore", logicState.Hands["opponent"].CurrentScore),
-				)
+				// logicState := logic.GetStateLog(gameState)
+				// slog.Info("State log",
+				// 	slog.Int("myCrrentScore", logicState.Hands["me"].CurrentScore),
+				// 	slog.Int("opponentCurrentScore", logicState.Hands["opponent"].CurrentScore),
+				// )
 				move := &proto.MoveRequest{
 					RoomID:   roomState.RoomID,
 					PlayerID: roomState.PlayerID,
@@ -138,13 +138,18 @@ func main() {
 					os.Exit(1)
 				}
 				cardsCounter.Update(newState)
-				slog.Info("Counter updated", slog.String("counter", cardsCounter.String()))
+				// slog.Info("Counter updated", slog.String("counter", cardsCounter.String()))
 
 				gameState = newState
 				break
 			}
 			i++
 		}
+		logicState := logic.GetStateLog(gameState)
+		slog.Info("State log",
+			slog.Int("myCrrentScore", logicState.Hands["me"].CurrentScore),
+			slog.Int("opponentCurrentScore", logicState.Hands["opponent"].CurrentScore),
+		)
 		roomState, err = getRoomState(client, roomState.RoomID, roomState.PlayerID)
 		if err != nil {
 			slog.Error("Failed to get room state", slog.Any("error", err))
