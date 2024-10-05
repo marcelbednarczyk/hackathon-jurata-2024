@@ -18,14 +18,14 @@ func (b *randomBot) MakeTakeCardsMove(state *proto.GameState, _ counter.Counter,
 		return []string{takeRandomNotNullCard(state.Market.PointCards)}
 	}
 
-	return takeNRandomNotNullCards(state.Market.VegetableCards, 2)
+	return TakeNRandomNotNullCards(state.Market.VegetableCards, 2)
 }
 
 func (b *randomBot) MakeFlipMove(state *proto.GameState, _ int) []string {
 	return []string{}
 }
 
-func takeNRandomNotNullCards(cards []*proto.Card, n int) []string {
+func TakeNRandomNotNullCards(cards []*proto.Card, n int) []string {
 	result := map[string]struct{}{}
 	count := min(n, avaialbleCards(cards))
 	for {

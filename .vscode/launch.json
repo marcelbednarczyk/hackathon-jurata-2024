@@ -45,7 +45,7 @@
             "mode": "auto",
             "program": "${workspaceFolder}",
             "args": [
-                "--name", "SolucjaMniejTymczasowa🔜",
+                "--name", "SolucjaMniejMniejTymczasowa🔜",
                 "--addr", "hackaton-2024.rainbowtours.pl:80",
                 "--room", "TEST1",
                 // "--room", "8JQKC",
@@ -54,6 +54,7 @@
                 // "--debug", "true",
             ],
             "env": {
+                "OPENINGS": "true",
                 "PREDICT": "true"
             }
         },
