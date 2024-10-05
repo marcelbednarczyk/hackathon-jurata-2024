@@ -41,7 +41,7 @@ func (b *solucjaTymczasowaBot) MakeTakeCardsMove(gameState *proto.GameState, cou
 	}
 
 	sum := 0
-	if len(maxIds) == 0 || (i <= 3 && os.Getenv("OPENINGS") == "true") {
+	if i <= 3 && os.Getenv("OPENINGS") == "true" {
 		opening := consequences.OpeningPointCard(gameState)
 		if opening != "" {
 			slog.Info("Opening point card", slog.String("id", opening))
@@ -71,6 +71,8 @@ func (b *solucjaTymczasowaBot) MakeTakeCardsMove(gameState *proto.GameState, cou
 		}
 
 		return randomCards
+	} else if len(maxIds) == 0 {
+		return b.greedy.MakeTakeCardsMove(gameState, cou, i)
 	} else {
 		for _, card := range gameState.Market.PointCards {
 			if card.CardID == maxIds[0] {
