@@ -92,34 +92,29 @@ func (b *solucjaTymczasowaBot) MakeTakeCardsMove(gameState *proto.GameState, cou
 	}
 }
 
-func (b *solucjaTymczasowaBot) MakeFlipMove(state *proto.GameState, i int) []string {
-	if i < 13 {
-		return []string{}
-	}
-	return []string{}
-	// TODO: implement Flip function
-	maxPoints, maxIds := 0, []string{}
-	cons := consequences.Flip(state)
-	for id, points := range cons.PointCards {
-		// slog.Info("Point card", slog.String("id", id), slog.Int("points", points))
-		if points > maxPoints && id != "" {
-			maxPoints = points
-			maxIds = []string{id}
-		}
-	}
-	sum := 0
-	if len(maxIds) == 0 {
-		return []string{}
-	} else {
-		for _, card := range state.Market.PointCards {
-			if card.CardID == maxIds[0] {
-				sum++
+func (b *solucjaTymczasowaBot) MakeFlipMove(state *proto.GameState, cou counter.Counter, i int) []string {
+	if getLenOfCards(state.Market.PointCards)+getLenOfCards(state.Market.VegetableCards) < 1 {
+		cons := consequences.Flip(state)
+		maxPoints, maxIds := 0, []string{}
+		for id, points := range cons.PointCards {
+			if points > maxPoints && id != "" {
+				maxPoints = points
+				maxIds = []string{id}
 			}
 		}
-		if sum == len(maxIds) {
+		if len(maxIds) != 0 {
 			return maxIds
-		} else {
-			return []string{}
 		}
 	}
+	return []string{}
+}
+
+func getLenOfCards(cards []*proto.Card) int {
+	len := 0
+	for i := range cards {
+		if cards[i].CardID != "" {
+			len++
+		}
+	}
+	return len
 }

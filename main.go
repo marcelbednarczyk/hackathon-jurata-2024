@@ -124,7 +124,7 @@ func main() {
 				if gameState.MoveToMake == proto.MoveType_TAKE_CARDS {
 					move.Cards = b.MakeTakeCardsMove(gameState, cardsCounter, i)
 				} else {
-					move.Cards = b.MakeFlipMove(gameState, i)
+					move.Cards = b.MakeFlipMove(gameState, cardsCounter, i)
 				}
 
 				newState, err := makeMove(client, move)

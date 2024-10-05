@@ -7,5 +7,5 @@ import (
 
 type Bot interface {
 	MakeTakeCardsMove(state *proto.GameState, cou counter.Counter, i int) []string
-	MakeFlipMove(state *proto.GameState, i int) []string
+	MakeFlipMove(state *proto.GameState, _ counter.Counter, i int) []string
 }

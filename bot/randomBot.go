@@ -21,7 +21,7 @@ func (b *randomBot) MakeTakeCardsMove(state *proto.GameState, _ counter.Counter,
 	return TakeNRandomNotNullCards(state.Market.VegetableCards, 2)
 }
 
-func (b *randomBot) MakeFlipMove(state *proto.GameState, _ int) []string {
+func (b *randomBot) MakeFlipMove(state *proto.GameState, _ counter.Counter, _ int) []string {
 	return []string{}
 }
 
