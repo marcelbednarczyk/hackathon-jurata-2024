@@ -94,6 +94,8 @@ func main() {
 			b = bot.NewGreedyBot()
 		case "solucjaTymczasowa":
 			b = bot.NewSolucjaTymczasowaBot()
+		case "solucjaV2":
+			b = bot.NewSolucjaV2Bot()
 		default:
 			b = bot.NewRandomBot()
 		}
