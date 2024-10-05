@@ -38,7 +38,7 @@ func OpeningVegeCard(gameState *proto.GameState) []string {
 	selectedCards := []string{}
 	if len(sortedVegetableCards) >= 2 {
 		selectedCards = append(selectedCards, sortedVegetableCards[0].CardID, sortedVegetableCards[1].CardID)
-		slog.Info("Opening", slog.String("bestCardID1", selectedCards[0]), slog.String("bestCardID2", selectedCards[1]))
+		// slog.Info("Opening", slog.String("bestCardID1", selectedCards[0]), slog.String("bestCardID2", selectedCards[1]))
 	} else if len(sortedVegetableCards) == 1 {
 		selectedCards = append(selectedCards, sortedVegetableCards[0].CardID)
 	}
@@ -88,7 +88,7 @@ func OpeningPointCard(gameState *proto.GameState) string {
 			}
 		}
 	}
-	slog.Info("Opening", slog.String("bestCardID", bestCardID), slog.Int("maxScore", maxScore))
+	// slog.Info("Opening", slog.String("bestCardID", bestCardID), slog.Int("maxScore", maxScore))
 	return bestCardID
 }
 
