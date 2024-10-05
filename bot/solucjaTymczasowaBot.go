@@ -20,7 +20,7 @@ func NewSolucjaTymczasowaBot() *solucjaTymczasowaBot {
 }
 
 func (b *solucjaTymczasowaBot) MakeTakeCardsMove(gameState *proto.GameState, cou counter.Counter, i int) []string {
-	maxPoints, maxIds := 0, []string{}
+	maxPoints, maxIds := -999, []string{}
 	cons := consequences.Start(gameState, cou)
 	for id, points := range cons.PointCards {
 		// slog.Info("Point card", slog.String("id", id), slog.Int("points", points))
