@@ -12,10 +12,11 @@
             "program": "${workspaceFolder}",
             "args": [
                 "--name", "McKing",
-                "--addr", "hackaton-2024.rainbowtours.pl:80",
+                "--addr", "localhost:50051",
+                // "--addr", "hackaton-2024.rainbowtours.pl:80",
                 "--room", "TEST1", 
                 "--new", 
-                "--count", "10",
+                "--count", "100",
                 // "--debug", "true",
             ]
         },
@@ -51,12 +52,14 @@
                 // "--addr", "hackaton-2024.rainbowtours.pl:80",
                 "--room", "TEST1",
                 "--new", 
-                "--count", "100",
+                "--count", "1000",
                 "--bot", "solucjaV2",
                 // "--debug", "true",
             ],
             "env": {
-                "PREDICT": "true"
+                "PREDICT": "true",
+                "SKATER": "true",
+                "CARD_CHANCE": "0.73"
             }
         },
         {
@@ -67,17 +70,20 @@
             "program": "${workspaceFolder}",
             "args": [
                 "--name", "SolucjaV2🔜",
-                // "--addr", "localhost:50051",
-                "--addr", "hackaton-2024.rainbowtours.pl:80",
+                "--addr", "localhost:50051",
+                // "--addr", "hackaton-2024.rainbowtours.pl:80",
                 "--room", "TEST1",
                 // "--room", "8JQKC",
                 // "--room", "OAGOM",
+                // "--room", "1TM4I",
                 "--bot", "solucjaV2",
                 // "--debug", "true",
             ],
             "env": {
                 "PREDICT": "true",
+                "CARD_CHANCE": "0.73",
                 "SKATER": "true",
+                "SKATEPARK": "true",
             }
         },
     ]

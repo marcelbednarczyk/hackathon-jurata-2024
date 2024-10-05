@@ -1,13 +1,24 @@
 package consequences
 
 import (
+	"os"
+	"strconv"
+
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/counter"
 	"github.com/marcelbednarczyk/hackathon-jurata-2024/proto"
 )
 
-const (
-	cardChance = 0.50 //37% 57/43, 50% 71/29, 75% 66/34
-)
+var cardChance = 0.73 //37% 57/43, 50% 71/29, 75% 66/34
+
+func init() {
+	if os.Getenv("CARD_CHANCE") != "" {
+		var err error
+		cardChance, err = strconv.ParseFloat(os.Getenv("CARD_CHANCE"), 64)
+		if err != nil {
+			panic(err)
+		}
+	}
+}
 
 func Prediction(gameState *proto.GameState, remainingCards counter.Counter) {
 	predictedCards := []*proto.Card{}

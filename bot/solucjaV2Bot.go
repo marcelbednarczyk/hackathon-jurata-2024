@@ -47,7 +47,7 @@ func (b *solucjaV2Bot) MakeTakeCardsMove(gameState *proto.GameState, cou counter
 
 func (b *solucjaV2Bot) MakeFlipMove(state *proto.GameState, cou counter.Counter, i int) []string {
 	if os.Getenv("SKATER") == "true" {
-		if getLenOfCards(state.Market.PointCards)+getLenOfCards(state.Market.VegetableCards) < 1 {
+		if getLenOfCards(state.Market.PointCards)+getLenOfCards(state.Market.VegetableCards) < 3 {
 			cons := consequences.Flip(state)
 			maxPoints, maxIds := 0, []string{}
 			for id, points := range cons.PointCards {
