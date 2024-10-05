@@ -67,6 +67,7 @@ func OpeningPointCard(gameState *proto.GameState) string {
 			}
 		}
 	}
+	slog.Info("Point card bonuses in hand", slog.Any("pointCardBonusesInHand", pointCardBonusesInHand))
 
 	sortedPointCards := make([]*proto.Card, len(gameState.Market.PointCards))
 	copy(sortedPointCards, gameState.Market.PointCards)
@@ -92,13 +93,15 @@ func OpeningPointCard(gameState *proto.GameState) string {
 }
 
 func calculateCardScore(card *proto.Card, bonusesInHand map[proto.VegetableType]int) int {
-	score := baseCardScore(card)
+	score := baseCardScore(card, bonusesInHand)
 	if ppv := card.PointsPerVegetable; ppv != nil {
 		uniqueVegetables := make(map[proto.VegetableType]bool)
 		for _, vp := range ppv.Points {
 			uniqueVegetables[vp.Vegetable] = true
 			score += int(vp.Points)
-			if bonus, ok := bonusesInHand[vp.Vegetable]; ok && bonus > 0 {
+			if bonus, ok := bonusesInHand[vp.Vegetable]; ok && bonus > 0 && vp.Points < 0 {
+				score += int(vp.Points)
+			} else if bonus, ok := bonusesInHand[vp.Vegetable]; ok && bonus < 0 && vp.Points > 0 {
 				score += bonus
 			}
 		}
@@ -106,29 +109,97 @@ func calculateCardScore(card *proto.Card, bonusesInHand map[proto.VegetableType]
 			score += 3
 		}
 	}
+
+	if card.Sum != nil {
+		for _, veg := range card.Sum.Vegetables {
+			if bonus, ok := bonusesInHand[veg]; ok && bonus > 0 {
+				score += bonus
+			}
+		}
+	}
+
 	return score
 }
-
-func baseCardScore(card *proto.Card) int {
+func baseCardScore(card *proto.Card, bonusesInHand map[proto.VegetableType]int) int {
 	switch card.PointType {
 	case proto.PointType_POINTS_PER_VEGETABLE_THREE:
-		return 5
+		return 6 + bonusModifier(card, bonusesInHand)
 	case proto.PointType_POINTS_PER_VEGETABLE_TWO:
-		return 2
+		return 3 + bonusModifier(card, bonusesInHand)
+	case proto.PointType_POINTS_PER_VEGETABLE_ONE:
+		return 1 + bonusModifier(card, bonusesInHand)
+
 	case proto.PointType_SUM_THREE:
-		mapVegetables := make(map[proto.VegetableType]interface{})
-		for _, vp := range card.Sum.Vegetables {
-			mapVegetables[vp] = nil
-		}
-		if len(mapVegetables) == 3 {
-			return 5
-		}
-		return 0
+		return evaluateSumCard(card.Sum, 8, bonusesInHand)
 	case proto.PointType_SUM_TWO:
-		return 2
+		return evaluateSumCard(card.Sum, 3, bonusesInHand)
+
+	case proto.PointType_MOST_TOTAL:
+		return 6 + bonusModifier(card, bonusesInHand)
+	case proto.PointType_FEWEST_TOTAL:
+		return 6 + bonusModifier(card, bonusesInHand)
+
+	// case proto.PointType_COMPLETE_SET:
+	// 	return -1 + bonusModifier(card, bonusesInHand)
+	// case proto.PointType_MISSING_VEGETABLE:
+	// 	return missingVegetableModifier(card, bonusesInHand)
+
+	// case proto.PointType_AT_LEAST_TWO:
+	// 	return conditionalBonus(card, 2)
+	// case proto.PointType_AT_LEAST_THREE:
+	// 	return conditionalBonus(card, 3)
+
 	default:
 		return 0
 	}
+}
+
+func bonusModifier(card *proto.Card, bonusesInHand map[proto.VegetableType]int) int {
+	score := 0
+	if ppv := card.PointsPerVegetable; ppv != nil {
+		for _, vp := range ppv.Points {
+			if bonus, ok := bonusesInHand[vp.Vegetable]; ok && bonus > 0 {
+				score += 2
+			}
+		}
+	}
+	return score
+}
+
+func evaluateSumCard(sum *proto.Sum, baseValue int, bonusesInHand map[proto.VegetableType]int) int {
+	uniqueVegetables := make(map[proto.VegetableType]struct{})
+	score := baseValue
+
+	for _, vegetable := range sum.Vegetables {
+		uniqueVegetables[vegetable] = struct{}{}
+		if _, exists := bonusesInHand[vegetable]; !exists {
+			score += 1
+		}
+	}
+
+	if len(uniqueVegetables) >= 3 {
+		score += 3
+	}
+	return score
+}
+
+func missingVegetableModifier(card *proto.Card, bonusesInHand map[proto.VegetableType]int) int {
+	score := 0
+	if ppv := card.PointsPerVegetable; ppv != nil {
+		for _, vp := range ppv.Points {
+			if _, exists := bonusesInHand[vp.Vegetable]; !exists {
+				score += 3
+			}
+		}
+	}
+	return score
+}
+
+func conditionalBonus(card *proto.Card, requiredCount int) int {
+	if card.Sum != nil && len(card.Sum.Vegetables) >= requiredCount {
+		return requiredCount * 2
+	}
+	return 0
 }
 
 // Sprawdza czy już nie ma debufów na dany rodaj warzywa

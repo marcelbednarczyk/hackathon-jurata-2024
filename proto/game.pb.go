@@ -127,30 +127,30 @@ func (VegetableType) EnumDescriptor() ([]byte, []int) {
 	return file_game_proto_rawDescGZIP(), []int{1}
 }
 
-type PointType int32
+	type PointType int32
 
-const (
-	PointType_BAD_POINT_TYPE PointType = 0
-	// PointsPerVegetable
-	PointType_POINTS_PER_VEGETABLE_ONE   PointType = 1
-	PointType_POINTS_PER_VEGETABLE_TWO   PointType = 2
-	PointType_POINTS_PER_VEGETABLE_THREE PointType = 3
-	// Sum
-	PointType_SUM_TWO   PointType = 4
-	PointType_SUM_THREE PointType = 5
-	// EvenOdd
-	PointType_EVEN_ODD PointType = 6
-	// FewestMost
-	PointType_FEWEST PointType = 7
-	PointType_MOST   PointType = 8
-	// Other
-	PointType_MOST_TOTAL        PointType = 9
-	PointType_FEWEST_TOTAL      PointType = 10
-	PointType_COMPLETE_SET      PointType = 11
-	PointType_AT_LEAST_TWO      PointType = 12
-	PointType_AT_LEAST_THREE    PointType = 13
-	PointType_MISSING_VEGETABLE PointType = 14
-)
+	const (
+		PointType_BAD_POINT_TYPE PointType = 0
+		// PointsPerVegetable
+		PointType_POINTS_PER_VEGETABLE_ONE   PointType = 1
+		PointType_POINTS_PER_VEGETABLE_TWO   PointType = 2
+		PointType_POINTS_PER_VEGETABLE_THREE PointType = 3
+		// Sum
+		PointType_SUM_TWO   PointType = 4
+		PointType_SUM_THREE PointType = 5
+		// EvenOdd
+		PointType_EVEN_ODD PointType = 6
+		// FewestMost
+		PointType_FEWEST PointType = 7
+		PointType_MOST   PointType = 8
+		// Other
+		PointType_MOST_TOTAL        PointType = 9
+		PointType_FEWEST_TOTAL      PointType = 10
+		PointType_COMPLETE_SET      PointType = 11
+		PointType_AT_LEAST_TWO      PointType = 12
+		PointType_AT_LEAST_THREE    PointType = 13
+		PointType_MISSING_VEGETABLE PointType = 14
+	)
 
 // Enum value maps for PointType.
 var (

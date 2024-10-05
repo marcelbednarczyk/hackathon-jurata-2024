@@ -42,6 +42,7 @@ func (b *solucjaTymczasowaBot) MakeTakeCardsMove(gameState *proto.GameState, cou
 
 	sum := 0
 	if len(maxIds) == 0 || (i <= 3 && os.Getenv("OPENINGS") == "true") {
+		slog.Info("Opening cards", slog.Int("Iteration", i), slog.Any("Max", maxIds))
 		opening := consequences.OpeningPointCard(gameState)
 		if opening != "" {
 			slog.Info("Opening point card", slog.String("id", opening))
@@ -64,12 +65,13 @@ func (b *solucjaTymczasowaBot) MakeTakeCardsMove(gameState *proto.GameState, cou
 		randomCards := TakeNRandomNotNullCards(gameState.Market.VegetableCards, 2)
 		if len(vegeCards) == 1 {
 			slog.Info("Opening half vege card", slog.String("id1", openingVege[0]), slog.String("id2", randomCards[0]))
-			if vegeCards[0] == randomCards[0] {
+			if len(randomCards) > 1 && vegeCards[0] == randomCards[0] {
 				return append(vegeCards, randomCards[1])
+			} else if len(randomCards) == 1 {
+				return append(vegeCards, randomCards[0])
 			}
-			return append(vegeCards, randomCards[0])
+			return append(vegeCards, TakeNRandomNotNullCards(gameState.Market.VegetableCards, 2)[0])
 		}
-
 		return randomCards
 	} else {
 		for _, card := range gameState.Market.PointCards {
