@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	cardChance = 0.37 //37% 57/43, 50% 71/29, 75% 66/34
+	cardChance = 0.50 //37% 57/43, 50% 71/29, 75% 66/34
 )
 
 func Prediction(gameState *proto.GameState, remainingCards counter.Counter) {
